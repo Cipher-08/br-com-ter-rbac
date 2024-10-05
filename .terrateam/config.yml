@@ -4,8 +4,11 @@ hooks:
       - type: oidc
         provider: aws
         role_arn: "arn:aws:iam::017777978390:role/terrateam"
-access_control:
-  enabled: true
-  policies:
-    - tag_query: ''
-      plan: ['user:Sid-Lais']
+workflows:
+  - tag_query: ''
+    plan:
+      - type: init
+      - type: plan
+      - type: run
+        cmd: ['checkov-wrapper']
+        capture_output: true
