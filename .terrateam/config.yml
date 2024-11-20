@@ -9,4 +9,4 @@ access_control:
   policies:
     - tag_query: ''
       plan: ['*']
-      apply: ['user:nitinteotia6548']
+      apply: ['*']
