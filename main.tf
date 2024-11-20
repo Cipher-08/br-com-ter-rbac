@@ -1,5 +1,5 @@
 provider "kubernetes" {
-  host                   = "https://34.46.208.116"
+  host                   = "https://34.46.208.116" # Replace with your cluster endpoint
   cluster_ca_certificate = <<EOT
 -----BEGIN CERTIFICATE-----
 MIIELDCCApSgAwIBAgIQayYnkMIsydkRgLBftVGL3TANBgkqhkiG9w0BAQsFADAv
@@ -27,9 +27,8 @@ harooHQatOswjP9ADGsQQ/G2zsKz1i4naGb64g5pmcaFo+sFbbifsFNj17njnmIW
 DM1jOP/UrgmSs8JkK+0eIQ==
 -----END CERTIFICATE-----
 EOT
-  token = "ya29.a0AeDClZAu2rFy6PsYDa4JRgANAmNsLkTUEpknxjH6-Gt0tjGmbUVajQ5hHgr2YT0-j94L6zUlqwED3wXxcaSpAw5MdXMzcTY1Ro_SEC_yUzwU-jw-hIZHm_GxURws7hnsSzJxAKC5UB1F-XlhnGwdy72BazqzdeuNV4cEwKeKSZ4MnuQaCgYKAVgSARMSFQHGX2Mii8t2l3ZPeZafsthbMNNX7g0182" # Use token obtained via gcloud auth print-access-token
+  token = "ya29.a0AeDClZ..." # Replace with the token obtained from `gcloud auth print-access-token`
 }
-
 
 resource "kubernetes_deployment" "blue" {
   metadata {
@@ -52,7 +51,7 @@ resource "kubernetes_deployment" "blue" {
         container {
           name  = "blue-app-container"
           image = "my-app:blue-version"
-          ports {
+          port {
             container_port = 8080
           }
         }
@@ -82,7 +81,7 @@ resource "kubernetes_deployment" "green" {
         container {
           name  = "green-app-container"
           image = "my-app:green-version"
-          ports {
+          port {
             container_port = 8080
           }
         }
@@ -106,3 +105,4 @@ resource "kubernetes_service" "loadbalancer" {
     type = "LoadBalancer"
   }
 }
+
