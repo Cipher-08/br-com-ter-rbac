@@ -36,7 +36,7 @@ resource "kubernetes_deployment" "blue" {
     name = "blue-app"
   }
   spec {
-   t replicas = 3
+    replicas = 3
     selector {
       match_labels = {
         app = "blue"
