@@ -1,4 +1,4 @@
-resource "null_resource" "foobar" {
+resource "null_resource" "fooobar" {
   provisioner "local-exec" {
     command = "echo foobar"
   }
