@@ -82,7 +82,7 @@ resource "kubernetes_deployment" "green" {
           name  = "green-app-container"
           image = "my-app:green-version"
           port {
-            container_port = 8080
+            container_port = 8081
           }
         }
       }
