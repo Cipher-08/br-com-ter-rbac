@@ -28,7 +28,6 @@
      runs-on: ubuntu-latest
      timeout-minutes: 1440
      name: Terrateam Action
-     environment: '${{ github.event.inputs.environment }}'
      steps:
        - uses: actions/checkout@v3
        - name: Run Terrateam Action
