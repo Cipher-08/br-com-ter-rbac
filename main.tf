@@ -1,5 +1,4 @@
-resource "null_resource" "foooobar" {
-  provisiner "local-exec" {
+resource "null_resource" "foobar" {
     command = "echo foobar"
   }
 }
