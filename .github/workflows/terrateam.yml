@@ -28,15 +28,10 @@
      runs-on: ubuntu-latest
      timeout-minutes: 1440
      name: Terrateam Action
-     environment: '${{ github.event.inputs.environment }}'
      steps:
        - uses: actions/checkout@v4
        - name: Run Terrateam Action
-         id: terrateam
-         uses: terrateamio/action@v1
-         with:
-           work-token: '${{ github.event.inputs.work-token }}'
-           api-base-url: '${{ github.event.inputs.api-base-url }}'
+         uses: terrateamio
          env:
            SECRETS_CONTEXT: ${{ toJson(secrets) }}
            VARIABLES_CONTEXT: ${{ toJson(vars) }}
