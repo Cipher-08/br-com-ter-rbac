@@ -33,10 +33,7 @@
        - uses: actions/checkout@v3
        - name: Run Terrateam Action
          id: terrateam
-         uses: terrateamio/action@v1
-         with:
-           work-token: '${{ github.event.inputs.work-token }}'
-           api-base-url: '${{ github.event.inputs.api-base-url }}'
+         uses: terrateamio/action
          env:
            SECRETS_CONTEXT: ${{ toJson(secrets) }}
            VARIABLES_CONTEXT: ${{ toJson(vars) }}
